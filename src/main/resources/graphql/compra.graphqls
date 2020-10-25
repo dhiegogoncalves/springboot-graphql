@@ -1,0 +1,35 @@
+type Compra {
+  id: ID!
+  quantidade: Int!
+  status: String!
+  data: Date!
+  cliente: Cliente
+  produto: Produto!
+}
+
+type compraResumo {
+  compraId: ID!
+  cliente: String!
+  produto: String!
+  quantidade: Int!
+}
+
+input CompraInput {
+  id: ID
+  quantidade: Int!
+  status: String!
+  clienteId: ID!
+  produtoId: ID!
+}
+
+extend type Query {
+  compra(id: ID!): Compra
+  compras(page: Int = 0, size: Int = 10): [Compra]!
+  comprasResumo: [compraResumo]
+}
+
+extend type Mutation {
+  saveCompra(compra: CompraInput!): Compra!
+  updateCompra(compra: CompraInput!): Compra
+  deleteCompra(id: ID!): Boolean!
+}
