@@ -1,4 +1,4 @@
-# LIBRARY-API
+# SpringBoot-GraphQL
 
 > Demo project of Spring Boot with GraphQL.
 
